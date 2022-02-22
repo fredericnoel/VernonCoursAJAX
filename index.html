@@ -8,7 +8,15 @@
 </head>
 <body>
     <script>
-        
+        let xhr = new XMLHttpRequest();
+        // Exemple envoi en méthode POST
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.open('POST', 'test.php', true);
+
+        // Exemple envoi en méthode GET
+        let valeur1 = encodeURIComponent(valeur1);
+        let valeur2 = encodeURIComponent(valeur2);
+        xhr.open('GET', 'test.php?valeur1=1&valeur2=10', true);
     </script>
 </body>
 </html>
