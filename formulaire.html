@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li><label for="mail">e-mail :</label><input type="text" id="mail" name="mail" /></li>
+        <li><label for="mdp">Mot de passe</label><input type="password" id="mdp" name="mdp" /></li>
+        <li><input type="reset" value="Effacer" /><button onclick="envoyerFormulaire();">Envoyer !</button></li>
+    </ul>
+
+    <script>
+        function envoyerFormulaire() {
+            let xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200)
+                    document.write(xhr.responseText);
+            }
+
+            let mail = document.getElementById('mail').value;
+            let mdp = document.getElementById('mdp').value;
+
+            xhr.open("POST", "formulaireTest.php", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send("mail=" + mail + "&mdp=" + mdp);
+        }
+
+    </script>
+</body>
+
+</html>
