@@ -12,11 +12,13 @@
         // Exemple envoi en méthode POST
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.open('POST', 'test.php', true);
+        xhr.send('valeur1=' + 1 + '&valeur2=' + 10);
 
         // Exemple envoi en méthode GET
         let valeur1 = encodeURIComponent(valeur1);
         let valeur2 = encodeURIComponent(valeur2);
         xhr.open('GET', 'test.php?valeur1=1&valeur2=10', true);
+        xhr.send(null);
     </script>
 </body>
 </html>
